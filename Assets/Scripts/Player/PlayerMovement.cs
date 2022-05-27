@@ -1,16 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
-public class PlayerMovement : MonoBehaviour
-{
-    [SerializeField, Range(1f, 10f)] private float _speed = 2f;
-    [SerializeField] private Camera _camera;
 
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
-    
-    private Vector2 _moveDirection
+public class PlayerMovement
+{
+    public Rigidbody2D rigidbody;
+    public Animator animator;
+    public float speed;
+    public float runSpeed;
+
+    public bool isRuning;
+    public Vector2 MoveDirection
     {
         get
         {
@@ -20,41 +19,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Update()
+    private float _speed
     {
-        PointMove();
-    }
-    private void FixedUpdate()
-    {
-        Move(_moveDirection);
-    }
-
-    private void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-    }
-
-    private void PointMove()
-    {
-        if (Input.GetButtonDown("Fire2"))
+        get 
         {
-            Vector2 point = _camera.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = point;
+            if (Input.GetKey(KeyCode.LeftShift)) return runSpeed; isRuning = true;
+            isRuning = false;
+            return speed; 
         }
-        
     }
-    private void Move(Vector2 input)
+    public void Move(Vector2 input)
     {
-        SetAnimation(input);
-        _rigidbody.MovePosition(_rigidbody.position + input * _speed * Time.deltaTime);
-    }
-
-    private void SetAnimation(Vector2 input)
-    {
-        _animator.SetFloat("Horizontal", input.x);
-        _animator.SetFloat("Vertical", input.y);
-        _animator.SetFloat("Speed", input.sqrMagnitude);
+        rigidbody.MovePosition(rigidbody.position + input * _speed * Time.deltaTime);
     }
 
 }

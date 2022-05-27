@@ -1,11 +1,9 @@
 using UnityEngine;
 
-
-[RequireComponent(typeof(Camera))]
-public class CameraMovement : MonoBehaviour
+public class CameraMovement
 {
-    [SerializeField, Range(0f, 200f)] private float _speed = 10f;
-    
+    public float cameraSpeed;
+    public Camera camera;
     private Vector2 _moveDirection
     {
         get 
@@ -16,14 +14,9 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        MoveCamera();
-    }
-
-    private void MoveCamera()
+    public void MoveCamera()
     {
         if (Input.GetMouseButton(2))
-            transform.Translate(-_moveDirection * _speed * Time.deltaTime);
+            camera.transform.Translate(-_moveDirection * cameraSpeed * Time.deltaTime);
     }
 }
