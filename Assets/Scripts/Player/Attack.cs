@@ -1,39 +1,60 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 public class Attack
 {
+	public float cooldown = .2f;
+
 	public Camera camera;
 	public float damage;
 	public bool isAttacking = false;
+	public float attackRange = .7f;
+	public Coroutine StartCoroutine;
 
 	public Vector2 attackDir;
 	public Transform objectTransform;
-	
+
+	private Entity _target;
+
+	private float lastTime;
+
 	public void Attacking()
 	{
-		if (Input.GetButton("Fire1"))
+		
+		if (Input.GetButtonDown("Fire1") && !isAttacking)
 		{
 			isAttacking = true;
 			MeleeAttack();
-			return;
 		}
-		isAttacking=false;
-		attackDir = Vector2.zero;
+
 	}
 
 	private void MeleeAttack()
 	{
 		Vector2 point = camera.ScreenToWorldPoint(Input.mousePosition);
 		attackDir = FindDir(point, objectTransform.position);
+		
+		RaycastHit2D[] hits;
+		hits = Physics2D.RaycastAll(objectTransform.position, attackDir, attackRange);
+        if (hits.Length > 1)
+        {
+			hits[1].transform.TryGetComponent<Entity>(out _target);
+		}
+		
+
+        if (_target != null)
+        {
+			_target.TakeDamage(damage);
+			_target = null;
+        }
 	}
 
 
 	private Vector2 FindDir(Vector2 point, Vector2 objectPos)
     {
-		var x = Simplify(point - objectPos);
-		return x;
+		return Simplify(point - objectPos);
     }
 
 	private Vector2 Simplify(Vector2 point)

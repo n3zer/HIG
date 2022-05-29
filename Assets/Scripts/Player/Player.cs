@@ -1,5 +1,9 @@
+using UnityEngine.Events;
 using UnityEngine;
 
+
+[System.Serializable]
+public class UnityAnimationEvent : UnityEvent<string> { };
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +18,8 @@ public class Player : MonoBehaviour
     private HeroInfo _heroInfo;
     private PlayerStat _player;
 
+    public UnityAnimationEvent OnAnimationStart;
+    public UnityAnimationEvent OnAnimationComplete;
 
     private Animator _animator;
     private void Start()
@@ -39,13 +45,15 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _movement.Move(_movement.MoveDirection);
-        SetAnimation();
+       
+
     }
 
     private void Update()
     {
         _cameraMovement.MoveCamera();
         _attack.Attacking();
+        SetAnimation();
     }
 
     private void TakeDamage(float damage)
@@ -76,6 +84,7 @@ public class PlayerStat
     public float armor;
     public float speed;
     public float runSpeed;
+    public float stamina;
     public float damage;
     public float mana;
 
@@ -85,11 +94,11 @@ public class PlayerStat
         armor = data.Armor;
         speed = data.Speed;
         runSpeed = data.RunSpeed;
+        stamina = data.Stamina;
         damage = data.Damage;
         mana = data.Mana;
     }
 }
-
 
 public class HeroInfo
 {

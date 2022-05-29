@@ -23,8 +23,12 @@ public class PlayerMovement
     {
         get 
         {
-            if (Input.GetKey(KeyCode.LeftShift)) return runSpeed; isRuning = true;
             isRuning = false;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                isRuning = true;
+                return runSpeed;
+            }
             return speed; 
         }
     }

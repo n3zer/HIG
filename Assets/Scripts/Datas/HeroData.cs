@@ -15,6 +15,7 @@ public class HeroData : ScriptableObject
     [SerializeField] private float armor;
     [SerializeField] private float speed;
     [SerializeField] private float runSpeed;
+    [SerializeField] private float stamina;
     [SerializeField] private float damage;
     [SerializeField] private float mana;
 
@@ -46,6 +47,10 @@ public class HeroData : ScriptableObject
     public float RunSpeed
     {
         get { return runSpeed; }
+    }
+    public float Stamina
+    {
+        get { return stamina; }
     }
     public float Damage
     {
