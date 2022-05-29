@@ -2,9 +2,6 @@ using UnityEngine.Events;
 using UnityEngine;
 
 
-[System.Serializable]
-public class UnityAnimationEvent : UnityEvent<string> { };
-
 public class Player : MonoBehaviour
 {
     [SerializeField] private HeroData _heroData;
@@ -18,8 +15,6 @@ public class Player : MonoBehaviour
     private HeroInfo _heroInfo;
     private PlayerStat _player;
 
-    public UnityAnimationEvent OnAnimationStart;
-    public UnityAnimationEvent OnAnimationComplete;
 
     private Animator _animator;
     private void Start()
@@ -45,8 +40,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         _movement.Move(_movement.MoveDirection);
-       
-
     }
 
     private void Update()

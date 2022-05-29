@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
+
 public class Attack
 {
-	public float cooldown = .2f;
+	public float cooldown = .3f;
 
 	public Camera camera;
 	public float damage;
@@ -16,19 +16,25 @@ public class Attack
 	public Vector2 attackDir;
 	public Transform objectTransform;
 
+	private Animator animator;
+	private AnimationClip AttackedAnimationClip;
 	private Entity _target;
 
 	private float lastTime;
 
 	public void Attacking()
 	{
-		
-		if (Input.GetButtonDown("Fire1") && !isAttacking)
+		if (Time.time >= lastTime + cooldown && isAttacking)
+		{
+			isAttacking = false;
+			attackDir = Vector2.zero;
+		}
+		if (Input.GetButton("Fire1") && !isAttacking)
 		{
 			isAttacking = true;
 			MeleeAttack();
+			lastTime = Time.time;
 		}
-
 	}
 
 	private void MeleeAttack()
@@ -50,6 +56,7 @@ public class Attack
 			_target = null;
         }
 	}
+
 
 
 	private Vector2 FindDir(Vector2 point, Vector2 objectPos)
