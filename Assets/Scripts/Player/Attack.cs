@@ -46,7 +46,7 @@ public class Attack
 		hits = Physics2D.RaycastAll(objectTransform.position, attackDir, attackRange);
         if (hits.Length > 1)
         {
-			hits[1].transform.TryGetComponent<Entity>(out _target);
+			hits[hits.Length - 1].transform.TryGetComponent<Entity>(out _target);
 		}
 		
 

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5868017556781347595}
   - component: {fileID: 5868017556781347594}
   - component: {fileID: 5868017556781347593}
-  - component: {fileID: 5868017556781347592}
   - component: {fileID: 5868017556781347599}
+  - component: {fileID: 7591456001203212678}
   m_Layer: 0
   m_Name: Oracle
   m_TagString: Untagged
@@ -107,20 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5868017556781347592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5868017556781347598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d43d3603dba9d4eabab6b8ba1fbae1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 100
-  _armor: 4
 --- !u!61 &5868017556781347599
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +133,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &7591456001203212678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868017556781347598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375a74ff7775f994190a262961fbcb89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  _armor: 6
+  canTakeDamage: 1
+  _damage: 0
