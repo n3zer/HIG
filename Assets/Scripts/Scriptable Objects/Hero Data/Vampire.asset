@@ -22,5 +22,6 @@ MonoBehaviour:
   armor: 3
   speed: 4
   runSpeed: 8
-  damage: 8
+  stamina: 0
+  damage: 27
   mana: 320

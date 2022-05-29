@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     private HeroInfo _heroInfo;
     private PlayerStat _player;
 
-
     private Animator _animator;
     private void Start()
     {
