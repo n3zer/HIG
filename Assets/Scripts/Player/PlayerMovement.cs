@@ -7,6 +7,7 @@ public class PlayerMovement
     public Animator animator;
     public float speed;
     public float runSpeed;
+    public float stamina;
 
     public bool isRuning;
     public Vector2 MoveDirection
