@@ -12,12 +12,24 @@ public class LayerSwapper : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _previousLeyer = other.GetComponent<SpriteRenderer>().sortingLayerName;
-        other.GetComponent<SpriteRenderer>().sortingLayerName = _newLayer;
+        SpriteRenderer renderer;
+        other.TryGetComponent<SpriteRenderer>(out renderer);
+        if (renderer != null)
+        {
+            _previousLeyer = renderer.sortingLayerName;
+            renderer.sortingLayerName = _newLayer;
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        other.GetComponent<SpriteRenderer>().sortingLayerName = _previousLeyer;
+        SpriteRenderer renderer;
+        other.TryGetComponent<SpriteRenderer>(out renderer);
+        if (renderer != null)
+        {
+            renderer.sortingLayerName = _previousLeyer;
+        }
+        
     }
 }

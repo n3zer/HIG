@@ -11,16 +11,11 @@ public class Entity : MonoBehaviour
 
 	private bool _isTakeDamage;
 
-	private Animator _animator;
+	public Animator _animator;
 
-	private void Start() 
-	{
-		_animator = GetComponent<Animator>();
-	}
+	
 
-	private void FixedUpdate() => SetAnimation();
-
-	private void SetAnimation()
+	public void SetAnimation()
 	{
 		_animator.SetBool("isTakeDamage", _isTakeDamage);
 	}
