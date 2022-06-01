@@ -9,19 +9,25 @@ public class Enemy : Entity
     [HideInInspector] public bool isTarget;
     [HideInInspector] public Transform target;
 
+
+
+
     private void Start()
     {
         agent = new Agent(GetComponent<NavMeshAgent>());
         _animator = GetComponent<Animator>();
     }
 
-    private void FixedUpdate() => SetAnimation();
+    private void FixedUpdate()
+    {
+        SetAnimation(agent.moveDirection);
+    }
 
     private void Update()
     {
         if (isTarget)
-        {
             agent.FollowTarget(target);
-        }
+        
+        
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5868017556781347593}
   - component: {fileID: 5868017556781347599}
   - component: {fileID: 7591456001203212678}
+  - component: {fileID: 486820078314478890}
   m_Layer: 0
   m_Name: Oracle
   m_TagString: Untagged
@@ -153,6 +154,27 @@ MonoBehaviour:
   _damage: 0
   isTarget: 0
   target: {fileID: 0}
+--- !u!50 &486820078314478890
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868017556781347598}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8155688440704863992
 GameObject:
   m_ObjectHideFlags: 0

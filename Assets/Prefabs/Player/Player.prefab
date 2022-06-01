@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: -345437577
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 153926779, guid: 8a16600908a95f54f94782da38488d43, type: 3}
+  m_Sprite: {fileID: -1935596451, guid: a8bdeb931be273a488422751088d0333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.14, y: 0.23}
+  m_Size: {x: 0.14, y: 0.15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 8452258998072936526}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0a5e3d5ae01f92243a928342fd8669f4, type: 2}
+  m_Controller: {fileID: 9100000, guid: c95006d4cddc2e84d95868c4b171b74a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,29 +146,29 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.23}
-    newSize: {x: 0.14, y: 0.23}
+    oldSize: {x: 0.14, y: 0.15}
+    newSize: {x: 0.14, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02213955, y: 0.1150229}
-      - {x: -0.04076425, y: 0.08290003}
-      - {x: -0.05700714, y: 0.07041425}
+    - - {x: -0.009761806, y: 0.075414}
+      - {x: -0.040764254, y: 0.07547338}
+      - {x: -0.07000378, y: 0.07412757}
       - {x: -0.06928563, y: 0.006801069}
       - {x: -0.069678664, y: -0.056509852}
-      - {x: -0.06464994, y: -0.095380545}
-      - {x: -0.05540044, y: -0.11452906}
-      - {x: 0.058045812, y: -0.115283296}
-      - {x: 0.06585348, y: -0.08450973}
-      - {x: 0.07159841, y: -0.03563261}
+      - {x: -0.06526883, y: -0.07681389}
+      - {x: -0.041166004, y: -0.07739576}
+      - {x: 0.04257358, y: -0.0762933}
+      - {x: 0.066472374, y: -0.067180805}
+      - {x: 0.06974172, y: -0.03563261}
       - {x: 0.06935334, y: 0.0071523786}
-      - {x: 0.063373566, y: 0.019946456}
-      - {x: 0.064017415, y: 0.04593432}
-      - {x: 0.0377903, y: 0.08921033}
-      - {x: 0.02528388, y: 0.114235744}
+      - {x: 0.06832468, y: 0.030467559}
+      - {x: 0.07020632, y: 0.04593432}
+      - {x: 0.069353595, y: 0.07497588}
+      - {x: 0.020332769, y: 0.075245745}
 --- !u!114 &6587307910287703778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +183,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroData: {fileID: 11400000, guid: bf4d9e53e102e1e4a8a6184c2752e7ff, type: 2}
   _camera: {fileID: 0}
+  _camSpeed: 0

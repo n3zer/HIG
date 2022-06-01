@@ -14,7 +14,9 @@ public class TargetSelecter : MonoBehaviour
 
     private bool _isCol = false;
 
-	private void Start()
+
+
+    private void Start()
 	{
 		_parent = transform.parent.gameObject;
         _enemy = _parent.GetComponent<Enemy>();
@@ -31,6 +33,7 @@ public class TargetSelecter : MonoBehaviour
             _enemy.target = _target.transform;
             _enemy.isTarget = true;
         }
+
     }
 
     private IEnumerator OnTriggerExit2D(Collider2D collision)

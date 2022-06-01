@@ -16,11 +16,8 @@ public class Attack
 	public Vector2 attackDir;
 	public Transform objectTransform;
 
-	private Animator animator;
-	private AnimationClip AttackedAnimationClip;
-	private Entity _target;
-
 	private float lastTime;
+
 
 	public void Attacking()
 	{
@@ -41,23 +38,22 @@ public class Attack
 	{
 		Vector2 point = camera.ScreenToWorldPoint(Input.mousePosition);
 		attackDir = FindDir(point, objectTransform.position);
-		
-		RaycastHit2D[] hits;
-		hits = Physics2D.RaycastAll(objectTransform.position, attackDir, attackRange);
-        if (hits.Length > 1)
-        {
-			hits[hits.Length - 1].transform.TryGetComponent<Entity>(out _target);
-		}
-		
 
-        if (_target != null)
+        Collider2D[] hitsEnemies = Physics2D.OverlapCircleAll(objectTransform.position, attackRange);
+		foreach (Collider2D hit in hitsEnemies)
         {
-			_target.TakeDamage(damage);
-			_target = null;
+            if (hit.gameObject.CompareTag("Enemy"))
+            {
+				Enemy enemy;
+				hit.TryGetComponent<Enemy>(out enemy);
+				if (enemy != null)
+                {
+					enemy.TakeDamage(damage);
+                }
+			}
         }
+		
 	}
-
-
 
 	private Vector2 FindDir(Vector2 point, Vector2 objectPos)
     {
@@ -70,13 +66,15 @@ public class Attack
 		{
 			point.x = point.x / Math.Abs(point.x);
 			point.y = 0;
+			return point;
 		}
-		else
+		else if (Math.Abs(point.x) < Math.Abs(point.y))
 		{
 			point.y = point.y / Math.Abs(point.y);
 			point.x = 0;
+			return point;
 		}
 
-		return point;
+		return new Vector2(0, 0);
 	}
 }
