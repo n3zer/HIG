@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField, Range(100f, 300f)] private float _camSpeed = 130f;
 
     [SerializeField] private bool _canTakeDamage;
+    [SerializeField] private PlayerGuiManager _playerGuiManager;
 
     private PlayerMovement _movement = new PlayerMovement();
     private CameraMovement _cameraMovement = new CameraMovement();
@@ -40,11 +41,14 @@ public class Player : MonoBehaviour
         _attack.damage = _player.damage;
         _attack.camera = _camera;
         _attack.objectTransform = transform;
+
+        _playerGuiManager.SetMax(_player.health, _player.mana, _player.stamina);
     }
     
     private void FixedUpdate()
     {
         _movement.Move(_movement.MoveDirection);
+        
     }
 
     private void Update()
@@ -56,6 +60,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        _playerGuiManager.SetData(_player.health, _player.mana, _player.stamina);
         if (_canTakeDamage)
         {
             StartCoroutine(DamageAnimation());
@@ -91,7 +96,7 @@ public class Player : MonoBehaviour
 
 public class PlayerStat
 {
-    public float health { get; set;}
+    public float health;
     public float armor;
     public float speed;
     public float runSpeed;
