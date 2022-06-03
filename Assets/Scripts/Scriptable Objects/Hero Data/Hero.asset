@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5911aa77dfff1fb418c62900d14bce6e, type: 3}
-  m_Name: Vampire
+  m_Name: Hero
   m_EditorClassIdentifier: 
-  nameCharepter: Vampire
-  description: "\u0442\u044B \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E
-    \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0438\u0440\u0443\u0435\u0448\u044C
-    \u0442\u0435\u043D\u0438"
-  icon: {fileID: 153926779, guid: 8a16600908a95f54f94782da38488d43, type: 3}
-  animator: {fileID: 9100000, guid: 729706ff610ecc843955b5159604243f, type: 2}
+  nameCharepter: Hero
+  description: "\u0445\u0437 \u0434\u043B\u044F \u0447\u0435\u0433\u043E \u044D\u0442\u043E "
+  icon: {fileID: -1935596451, guid: a8bdeb931be273a488422751088d0333, type: 3}
+  animator: {fileID: 9100000, guid: c95006d4cddc2e84d95868c4b171b74a, type: 2}
   health: 100
   armor: 3
   speed: 4

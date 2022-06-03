@@ -1,4 +1,4 @@
-using UnityEngine.Events;
+using System.Collections;
 using UnityEngine;
 
 
@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField, Range(100f, 300f)] private float _camSpeed = 130f;
 
+    [SerializeField] private bool _canTakeDamage;
+
     private PlayerMovement _movement = new PlayerMovement();
     private CameraMovement _cameraMovement = new CameraMovement();
     private Attack _attack = new Attack();
@@ -16,6 +18,10 @@ public class Player : MonoBehaviour
     private PlayerStat _player;
 
     private Animator _animator;
+
+    private bool _isTakingDamage;
+
+    
     private void Start()
     {
         _player = new PlayerStat(_heroData);
@@ -48,11 +54,23 @@ public class Player : MonoBehaviour
         SetAnimation();
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        _player.health -= damage / (0.55f * _player.armor);
-        if(_player.health <= 0)
-            _player.health = 0;
+        if (_canTakeDamage)
+        {
+            StartCoroutine(DamageAnimation());
+            _player.health -= damage / (0.55f * _player.armor);
+            Debug.Log(damage);
+            if (_player.health <= 0)
+                Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator DamageAnimation()
+    {
+        _isTakingDamage = true;
+        yield return new WaitForSeconds(.2f);
+        _isTakingDamage = false;
     }
 
 
@@ -66,13 +84,14 @@ public class Player : MonoBehaviour
         _animator.SetFloat("Speed", dir.sqrMagnitude);
         _animator.SetBool("IsRun", _movement.isRuning);
         _animator.SetBool("IsAttack", _attack.isAttacking);
+        _animator.SetBool("IsTakingDamage", _isTakingDamage);
     }
 }
 
 
 public class PlayerStat
 {
-    public float health;
+    public float health { get; set;}
     public float armor;
     public float speed;
     public float runSpeed;

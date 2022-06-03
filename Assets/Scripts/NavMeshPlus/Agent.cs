@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class Agent
 {
-    private Transform _target;
+    private Vector2 _target;
     private NavMeshAgent _agent;
 
     public Vector2 moveDirection
@@ -24,8 +24,9 @@ public class Agent
 
     public void FollowTarget(Transform target)
     {
-        _target = target;
-        _agent.SetDestination(_target.position);
+        Vector2 point = target.position;
+        _target = point;
+        _agent.SetDestination(_target);
     }
 
 

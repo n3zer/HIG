@@ -13,15 +13,16 @@ public class Entity : MonoBehaviour
 
 	public Animator _animator;
 
-	public void SetAnimation(Vector2 md)
+	public void SetAnimation(Vector2 dir)
 	{
-		_animator.SetFloat("horizontal", md.x);
-		_animator.SetFloat("vertical", md.y);
+		_animator.SetFloat("horizontal", dir.x);
+		_animator.SetFloat("vertical", dir.y);
 		_animator.SetBool("isTakeDamage", _isTakeDamage);
 	}
 
 	public void TakeDamage(float damage)
 	{
+
 		if (_canTakeDamage)
 		{
 			StartCoroutine(DamageAnimation());
@@ -30,11 +31,6 @@ public class Entity : MonoBehaviour
 				Destroy(gameObject);
 		}
 	}
-
-	public void Attacking()
-    {
-
-    }
 
 	private IEnumerator DamageAnimation()
 	{
