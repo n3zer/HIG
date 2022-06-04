@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6988048093746284313}
   - component: {fileID: 1533997644251949124}
   - component: {fileID: 1942507128951127463}
+  - component: {fileID: 6687889846100163512}
   m_Layer: 0
   m_Name: Oracle
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -345437577
-  m_SortingLayer: 1
+  m_SortingLayerID: 865543809
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1884046628, guid: 27f0ba67c988d724396936b8f7fa1df1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.008614659, y: -0.18090609}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,5 +131,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.52330387, y: 0.17872101}
   m_EdgeRadius: 0
+--- !u!114 &6687889846100163512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460840256315577330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 224430461ac95504e93f97d9358ab418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
