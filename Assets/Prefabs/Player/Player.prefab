@@ -799,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 8452258998072936526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.99, y: 19.53, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 5.688264, y: 5.688264, z: 5.688264}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8058059066635988925}
@@ -847,7 +847,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -345437577
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1935596451, guid: a8bdeb931be273a488422751088d0333, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -899,7 +899,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!60 &422181039783188393
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -926,19 +926,23 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.009761806, y: 0.075414}
-      - {x: -0.040764254, y: 0.07547338}
+      - {x: -0.037637126, y: 0.06687382}
       - {x: -0.07000378, y: 0.07412757}
-      - {x: -0.06928563, y: 0.006801069}
+      - {x: -0.065169245, y: 0.0061150184}
+      - {x: -0.054971285, y: -0.009551485}
+      - {x: -0.06834557, y: -0.03486158}
       - {x: -0.069678664, y: -0.056509852}
-      - {x: -0.06526883, y: -0.07681389}
+      - {x: -0.048507202, y: -0.07681389}
       - {x: -0.041166004, y: -0.07739576}
-      - {x: 0.04257358, y: -0.0762933}
+      - {x: 0.042014863, y: -0.07517587}
       - {x: 0.066472374, y: -0.067180805}
       - {x: 0.06974172, y: -0.03563261}
-      - {x: 0.06935334, y: 0.0071523786}
+      - {x: 0.05305198, y: -0.012291306}
+      - {x: 0.06317881, y: 0.006466307}
       - {x: 0.06832468, y: 0.030467559}
       - {x: 0.07020632, y: 0.04593432}
       - {x: 0.069353595, y: 0.07497588}
+      - {x: 0.041994866, y: 0.06339122}
       - {x: 0.020332769, y: 0.075245745}
 --- !u!114 &6587307910287703778
 MonoBehaviour:
@@ -954,12 +958,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _heroData: {fileID: 11400000, guid: bf4d9e53e102e1e4a8a6184c2752e7ff, type: 2}
   _camera: {fileID: 0}
-  _camSpeed: 0
-  _canTakeDamage: 0
+  _camSpeed: 120
+  _canTakeDamage: 1
   _playerGuiManager:
-    _health: {fileID: 0}
-    _mana: {fileID: 0}
-    _stamina: {fileID: 0}
+    _health: {fileID: 6162725621139294595}
+    _mana: {fileID: 5890183779545022683}
+    _stamina: {fileID: 3563320721716934372}
 --- !u!1 &8916000202825595556
 GameObject:
   m_ObjectHideFlags: 0

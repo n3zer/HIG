@@ -7,7 +7,7 @@ public class LayerSwapper : MonoBehaviour
 
     private void Start()
     {
-        _newLayer = GetComponent<SpriteRenderer>().sortingLayerName;
+        _newLayer = GetComponent<Renderer>().sortingLayerName;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
