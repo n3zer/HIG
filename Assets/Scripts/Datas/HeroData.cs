@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -13,11 +14,28 @@ public class HeroData : ScriptableObject
     // Stats
     [SerializeField] private float health;
     [SerializeField] private float armor;
+
+    [Header("Movement")]
     [SerializeField] private float speed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float stamina;
     [SerializeField] private float damage;
+
+    [Header("Magic")]
     [SerializeField] private float mana;
+
+    [Header("Regeneration ")]
+    [SerializeField] private float regenMana;
+    [SerializeField] private float regenHealth;
+
+    [Header("Max stats")]
+    [SerializeField] private float maxMana;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxStamina;
+
+
+
+
 
     #region get data
     public string Name
@@ -60,6 +78,29 @@ public class HeroData : ScriptableObject
     {
         get { return mana; }
     }
+
+    public float RegenMana
+    {
+        get { return regenMana; }
+    }
+    public float RegenHealth
+    {
+        get { return regenHealth; }
+    }
+
+    public float MaxMana
+    {
+        get { return maxMana; }
+    }
+    public float MaxHealth
+    {
+        get { return maxHealth; }
+    }
+    public float MaxStamina
+    {
+        get { return maxStamina; }
+    }
+
 
 
     #endregion

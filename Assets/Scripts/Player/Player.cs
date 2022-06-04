@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     private Animator _animator;
 
     private bool _isTakingDamage;
-
     
     private void Start()
     {
@@ -42,14 +41,25 @@ public class Player : MonoBehaviour
         _attack.camera = _camera;
         _attack.objectTransform = transform;
 
-        _playerGuiManager.SetMax(_player.health, _player.mana, _player.stamina);
+        _playerGuiManager.SetMax(_player.maxHealth, _player.maxMana, _player.maxStamina);
     }
     
     private void FixedUpdate()
     {
         _movement.Move(_movement.MoveDirection);
-        
+        _player.stamina = _movement.stamina;
+        _playerGuiManager.SetData(_player.health, _player.mana, _player.stamina);
+        Regeneration();
     }
+
+    private void Regeneration()
+    {
+        if (_player.health < _player.maxHealth)
+            _player.health += _player.regenHealth * Time.deltaTime;
+        if (_player.mana < _player.maxMana)
+            _player.mana += _player.regenMana * Time.deltaTime;
+    }
+
 
     private void Update()
     {
@@ -60,12 +70,11 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        _playerGuiManager.SetData(_player.health, _player.mana, _player.stamina);
+        
         if (_canTakeDamage)
         {
             StartCoroutine(DamageAnimation());
             _player.health -= damage / (0.55f * _player.armor);
-            Debug.Log(damage);
             if (_player.health <= 0)
                 Destroy(gameObject);
         }
@@ -99,10 +108,23 @@ public class PlayerStat
     public float health;
     public float armor;
     public float speed;
+
     public float runSpeed;
     public float stamina;
+
     public float damage;
+
     public float mana;
+
+    //regen
+    public float regenMana;
+    public float regenHealth;
+
+    // max
+    public float maxMana;
+    public float maxHealth;
+    public float maxStamina;
+
 
     public PlayerStat(HeroData data)
     {
@@ -113,6 +135,14 @@ public class PlayerStat
         stamina = data.Stamina;
         damage = data.Damage;
         mana = data.Mana;
+
+        regenHealth = data.RegenHealth;
+        regenMana = data.RegenMana;
+
+        maxHealth = data.MaxHealth;
+        maxMana = data.MaxMana;
+        maxStamina = data.MaxStamina;
+
     }
 }
 

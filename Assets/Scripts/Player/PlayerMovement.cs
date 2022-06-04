@@ -10,6 +10,7 @@ public class PlayerMovement
     public float stamina;
 
     public bool isRuning;
+    public bool isRestingStamina;
     public Vector2 MoveDirection
     {
         get
@@ -25,11 +26,17 @@ public class PlayerMovement
         get 
         {
             isRuning = false;
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) && stamina > 0 & !isRestingStamina)
             {
                 isRuning = true;
+                stamina -= 2;
                 return runSpeed;
             }
+            if (stamina <= 0 & !isRestingStamina)
+                isRestingStamina = true;
+            if (stamina >= 20 && isRestingStamina)
+                isRestingStamina = false;
+            stamina += 1;
             return speed; 
         }
     }

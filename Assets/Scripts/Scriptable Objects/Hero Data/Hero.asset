@@ -16,10 +16,15 @@ MonoBehaviour:
   description: "\u0445\u0437 \u0434\u043B\u044F \u0447\u0435\u0433\u043E \u044D\u0442\u043E "
   icon: {fileID: -1935596451, guid: a8bdeb931be273a488422751088d0333, type: 3}
   animator: {fileID: 9100000, guid: c95006d4cddc2e84d95868c4b171b74a, type: 2}
-  health: 100
+  health: 720
   armor: 3
   speed: 4
   runSpeed: 8
-  stamina: 0
+  stamina: 100
   damage: 27
   mana: 320
+  regenMana: 1.2
+  regenHealth: 3
+  maxMana: 320
+  maxHealth: 720
+  maxStamina: 100
