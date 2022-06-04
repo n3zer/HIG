@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
@@ -12,7 +11,8 @@ public class Portal : MonoBehaviour
 
     [SerializeField] private TypePortal _typePortal;
 
-    [SerializeField] private SceneAsset _loadScene;
+
+    [SerializeField] private int _loadSceneId = 1;
     [SerializeField] private bool _isReady;
 
     private Animator _animator;
@@ -38,8 +38,7 @@ public class Portal : MonoBehaviour
                     Application.Quit();
                     break;
                 case TypePortal.loadLocation:
-                    SceneManager.LoadScene(_loadScene.name);
-                    Debug.Log("s");
+                    SceneManager.LoadScene(_loadSceneId);
                     break;
             }
         }
